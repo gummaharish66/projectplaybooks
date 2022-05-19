@@ -1,6 +1,6 @@
 ---
 - name: First playbook ping test
-  hosts: webserver
+  hosts: appwebserver
   tasks:
     - name: Ping test
       ping:
