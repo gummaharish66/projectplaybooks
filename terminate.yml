@@ -1,14 +1,9 @@
-## Terminate EC2 Instance using Instance ID.
 ---
-- hosts: localhost
-  connection: local
-  gather_facts: false
-  vars:
-    region: 'us-east-1'
+- name: This sets up an httpd webserver
+  hosts: appwebserver
   tasks:
-    - name: Terminate Existing instances using Instance ID's
-      ec2:
-        region: "{{ region }}"
-        wait: true
-        instance_ids: [ 'i-0114714b64fb02efb' ]
-        state: 'absent'
+  - name: Install apache packages 
+    yum:
+      name: httpd
+      state: present
+      
