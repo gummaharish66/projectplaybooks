@@ -1,6 +1,6 @@
 ---
 - name: First playbook ping test
-  hosts: appserver
+  hosts: tomcatserver
   tasks:
     - name: Ping test
       ping:
