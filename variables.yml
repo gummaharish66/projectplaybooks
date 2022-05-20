@@ -1,6 +1,6 @@
 ---
 - name: selinux enable or disable
-  hosts: servers
+  hosts: tomcatserver
   tasks:
     - name: changing SELinux from config file
       lineinfile:
