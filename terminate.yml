@@ -1,6 +1,6 @@
 ---
 - hosts: term
-  connection: local
+  connection: localhost
   gather_facts: false
   vars:
     region: 'us-east-1b'
