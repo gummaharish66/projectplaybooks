@@ -1,5 +1,5 @@
 ---
-- hosts: term
+- hosts: hello
   connection: localhost
   gather_facts: false
   vars:
