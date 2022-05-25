@@ -1,5 +1,5 @@
 ---
-- hosts: hello
+- hosts: end life
   connection: localhost
   gather_facts: false
   vars:
