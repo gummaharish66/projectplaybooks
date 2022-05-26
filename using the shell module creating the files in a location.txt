@@ -1,0 +1,13 @@
+---
+- name: files
+  hosts: localhost
+  tasks:
+    - name: use args, environment and loop with shell
+      shell: echo "welcome to prodevans" > $TARGET
+      args:
+        chdir: /root
+      environment:
+        TARGET: "{{ item }}"
+      loop:
+        - file1
+        - file2

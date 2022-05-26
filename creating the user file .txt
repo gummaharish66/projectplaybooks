@@ -1,0 +1,9 @@
+--- 
+  - name: creating user
+    hosts: all
+    tasks:
+      - name: creating a user1
+        ansible.builtin.user:
+          name: hello
+          uid: 200000
+...          
