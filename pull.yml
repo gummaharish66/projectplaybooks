@@ -1,0 +1,11 @@
+---
+- name: pull request
+  hosts: localhost
+  tasks:
+    - name: pull from the github
+      git:
+        repo: https://github.com/gummaharish66/projectplaybooks.git
+        dest: /var/lib/awx/projects/tower/goodtext
+        update: yes
+        version: main
+...        

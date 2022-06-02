@@ -1,0 +1,8 @@
+---
+- name: output
+  hosts: localhost
+  tasks:
+    - name: executable df 
+      command: 'df -h /boot'
+      register: dfboot
+    - debug: var=dfboot.stdout_lines  

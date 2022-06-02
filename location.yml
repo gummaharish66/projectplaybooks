@@ -1,0 +1,11 @@
+---
+- name: creating a file in location
+  hosts: all
+  vars:
+    myfile: /home/kp/location.txt
+  tasks:
+  - name: creating a text file 
+    ansible.builtin.copy:
+      dest: "{{myfile}}"
+      content: |
+        saving the content in a location
