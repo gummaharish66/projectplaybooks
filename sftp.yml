@@ -2,7 +2,7 @@
 - name: sftp checking
   hosts: localhost
   tasks:
-    - name: checking
+    - name: gitplaying
       raw: sftp kp@192.168.29.154:/home/kp/good.txt /home/kp/
       register: dip
       ignore_errors: true
