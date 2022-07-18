@@ -1,0 +1,12 @@
+---
+- name: sftp checking
+  hosts: localhost
+  tasks:
+    - name: checking
+      raw: sftp kp@192.168.29.154:/home/kp/good.txt /home/kp/project/
+      register: dip
+      ignore_errors: true
+    - name:
+      debug:
+        var: dip
+...                      
