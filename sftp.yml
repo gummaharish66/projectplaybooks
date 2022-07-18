@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
     - name: checking
-      raw: sftp kp@192.168.29.154:/home/kp/good.txt /home/kp/project/
+      raw: sftp kp@192.168.29.154:/home/kp/good.txt /home/kp/
       register: dip
       ignore_errors: true
     - name:
