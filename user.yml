@@ -1,6 +1,6 @@
 --- 
   - name: creating user
-    hosts: all
+    hosts: localhost
     tasks:
       - name: creating a user1
         ansible.builtin.user:
