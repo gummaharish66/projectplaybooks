@@ -1,6 +1,6 @@
 ---
 - name: First playbook ping test
-  hosts: 192.168.29.73
+  hosts: localhost
   tasks:
     - name: Ping test
       ping:
