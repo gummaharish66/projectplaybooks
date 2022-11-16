@@ -1,0 +1,21 @@
+---
+- name: Checking the Healt Report
+  hosts: localhost
+  remote_user: root
+  tasks:
+    - name: Check the status of AAP Service
+      service:
+        name: "{{ item }}"
+        state: status
+      loop:
+        - receptor
+        - supervisord
+        - nginx
+        - redis
+        - postgresql
+        - automation-controller
+      register: AAP_SERVICE_STATUS
+     
+     - name: Print the AAP Service Status
+       debug:
+         var: AAP_SERVICE_STATUS
