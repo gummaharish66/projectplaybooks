@@ -3,18 +3,15 @@
   hosts: localhost
   tasks:
     - name: checking the status
-      service:
-        - name: "{{item}}"
-          state: status
+      command: systemctl status "{{item}}"
       loop:
         - automation-controller
-        - postgresql
-        - redis
         - nginx
+        - redis
+        - postgresql
         - supervisord
         - receptor
       register: All_service_status
-      ignore_errors: yes
     - name: showing report
       debug:
         var: All_service_status
