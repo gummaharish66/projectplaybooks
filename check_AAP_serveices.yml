@@ -1,6 +1,6 @@
 ---
 - name: checking the status
-  hosts: localhost
+  hosts: all
   remote_user: root
   tasks:
     - name: checking the status
