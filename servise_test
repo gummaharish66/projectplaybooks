@@ -1,0 +1,17 @@
+---
+- name: checking the status
+  hosts: 192.168.0.138
+  tasks:
+    - name: checking the status
+      command: systemctl status "{{item}}"
+      loop:
+        - automation-controller
+        - nginx
+        - redis
+        - postgresql
+        - supervisord
+        - receptor
+      register: All_service_status
+    - name: showing report
+      debug:
+        var: All_service_status
