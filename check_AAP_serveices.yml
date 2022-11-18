@@ -1,6 +1,6 @@
 ---
 - name: checking the status
-  hosts: servera.lab.example.com
+  hosts: localhost
   remote_user: root
   tasks:
     - name: checking the status
