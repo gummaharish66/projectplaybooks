@@ -9,4 +9,4 @@
       register: All_service_status
     - name: showing report
       debug:
-        var: All_service_status
+        var: All_service_status.stdout_lines
