@@ -4,7 +4,7 @@
   remote_user: root
   tasks:
     - name: checking the status
-      script: /var/lib/awx/projects/ansible/system.yaml
+      script: /var/lib/awx/projects/ansible/system.sh
 #      command : echo "systemctl status {{ item }}" 
       register: All_service_status
     - name: showing report
