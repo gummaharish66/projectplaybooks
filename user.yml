@@ -1,6 +1,6 @@
 --- 
   - name: creating user
-    hosts: 192.168.29.73
+    hosts: localhost
     tasks:
       - name: creating a user1
         ansible.builtin.user:
