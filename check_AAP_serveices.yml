@@ -5,7 +5,7 @@
   tasks:
     - name: checking the status
       shell: systemctl status "{{ item }}"
-      command : echo "systemctl status {{ item }}" 
+#      command : echo "systemctl status {{ item }}" 
       loop:
         - automation-controller
         - nginx
