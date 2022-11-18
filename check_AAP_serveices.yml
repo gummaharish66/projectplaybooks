@@ -4,7 +4,7 @@
   remote_user: root
   tasks:
     - name: checking the status
-#      command: systemctl status "{{item}}"
+      shell: systemctl status "{{ item }}"
       command : echo "systemctl status {{ item }}" 
       loop:
         - automation-controller
