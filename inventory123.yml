@@ -1,0 +1,15 @@
+---
+- name: creating the inventory
+  hosts: 192.168.0.138
+  remote_user: root
+  tasks:
+    - name:
+      file:
+        path: /root/inventory
+        mode: 644
+        state: touch
+    - name:
+      lineinfile:
+        path: /root/inventory
+        line: "192.168.0.138"
+        state: present
