@@ -1,0 +1,8 @@
+---
+- name: bcakup
+  hosts: localhost
+  become: true
+  become_user: postgres
+  tasks:
+    - name: postgres backup
+      raw: pg_dump mydb | gzip > /var/lib/pgsql/mydb.gz
