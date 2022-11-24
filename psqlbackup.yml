@@ -1,6 +1,6 @@
 ---
 - name: bcakup
-  hosts: localhost
+  hosts: 192.168.0.138
   become: true
   become_user: postgres
   tasks:
