@@ -2,7 +2,7 @@
 - name: bcakup
   hosts: 192.168.0.138
   become: true
-  become_user: postgres
+  become_user: root
   tasks:
     - name: postgres backup
       raw: pg_dump mydb | gzip > /var/lib/pgsql/mydb.gz
