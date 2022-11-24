@@ -5,4 +5,4 @@
   become_user: postgres
   tasks:
     - name: postgres backup
-      raw: pg_dump mydb | gzip > /var/lib/pgsql/mydb.gz
+      raw: pg_dump awx | gzip > /var/lib/pgsql/awx.gz
