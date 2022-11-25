@@ -1,6 +1,6 @@
 ---
 - name: install httpd
-  hosts: 192.168.0.138
+  hosts: 192.168.0.109
   tasks:
     - name: httpd
       yum:
