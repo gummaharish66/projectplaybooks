@@ -1,0 +1,50 @@
+---
+- name: install apache
+  hosts: 192.168.0.138
+  tasks:
+    - name:
+      yum:
+        name: httpd
+        state: latest
+    - name: use replace module
+      ansible.builtin.replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: "Listen 80"
+        replace: "Listen 82"
+    - name: selinux port change
+      community.general.seport:
+        ports: 82
+        proto: tcp
+        setype: http_port_t
+        state: present
+    - name:
+      service:
+        name: httpd
+        enabled: true
+        state: started
+    - name:
+      ansible.posix.firewalld:
+        port: 82/tcp
+        permanent: yes
+     #  immediate: true
+        state: enabled
+    - name:
+      file:
+        path: /var/www/html/index.html
+        mode: 0644
+        state: touch
+        setype: httpd_sys_content_t
+    - name:
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "welcome world"
+        state: present
+    - name:
+      systemd:
+        name: httpd
+        state: restarted
+        enabled: yes
+    - name:
+      community.general.selinux_permissive:
+        name: httpd_t
+        permissive: true
