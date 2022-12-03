@@ -4,5 +4,3 @@
   tasks:
     - name: ping pong test
       ping:
-      debug:
-        var: test is done
