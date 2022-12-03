@@ -1,0 +1,8 @@
+---
+- name: reachability
+  hosts: 192.168.14.204
+  tasks:
+    - name: ping pong test
+      ping:
+      debug:
+        var: test is done
