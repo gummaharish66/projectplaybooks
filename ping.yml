@@ -1,6 +1,6 @@
 ---
 - name: reachability
-  hosts: 192.168.14.204
+  hosts: all
   tasks:
     - name: ping pong test
       ping:
