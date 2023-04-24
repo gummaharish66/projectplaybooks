@@ -1,0 +1,38 @@
+*********How to write Ansible Playbook to check CPU Usage for Linux Server*********
+
+Step 1: Make your you have installed "sysstat" rpm on all the Linux systems to access the "mpstat" command
+
+# yum install sysstat
+
+Step 2: Crete playbook to check the CPU Usage for 3 intervals (3 sec)
+ 
+# mpstat -u 1 3|tail -1| awk '{print $NF}'
+ 
+STep 3: Apply the logic using ansible when condition and print message accordingly 
+  IF 
+    - CPU idle percentage greater than 10 (CPU idle%  > 10) 
+  ELSE
+    - CPU idle percentage less than or equal 10 (CPU idle%  <= 10) 
+  
+Step 4: Perform ansible playbook syntax check
+
+# ansible-playbook monitoring-cpu-utilization.yml --syntax-check
+
+Step 5: Execute CPU utilization monitoring playbook and see the result
+
+# ansible-playbook -e "HOSTS=all" monitoring-cpu-utilization.yml
+
+=======================================================================
+Step 6: Send Ansible Email notification if CPU usage more than 90% (or) (CPU idle%  <= 10) 
+
+# ansible-playbook -e "HOSTS=all" cpu-monitoring.yml --ask-vault-pass
+
+Step 7: Check your Gmail Inbox.
+
+Step 8: Download playbook for your Reference using description link
+
+-------------------------------------------------------------------------------------
+      *********Thanks for Watching ***********
+
+
+

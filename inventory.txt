@@ -1,0 +1,2 @@
+[ansibleuser@ansiblenode ]$  cat inventory
+ansiblenode
