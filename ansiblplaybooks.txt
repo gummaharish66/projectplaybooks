@@ -1,0 +1,59 @@
+1.write te playbook to see top 5 process which is using more cpu 
+
+---
+- name: Show top 5 CPU consuming processes
+  hosts: localhost
+  tasks:
+    - name: Get top 5 CPU consuming processes
+      shell: ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6
+      register: top_cpu_processes
+
+    - name: Print top 5 CPU consuming processes
+      debug:
+        var: top_cpu_processes.stdout_lines
+		
+		
+2.write a playbook to fetch  the current  time using ansible facts
+
+---
+- name: date and time demo
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: date and time
+      ansible.builtin.debug:
+        var: ansible_date_time
+    - name: ISO8601
+      ansible.builtin.debug:
+        var: ansible_date_time.iso8601
+		
+		
+		
+3. Ansible Playbook for installation of Java
+
+- name: Java installation
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Download the JDK binaries
+      get_url:
+        url: https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+        dest: /opt/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+    - name: Unzip the downloaded file
+      unarchive:
+        src: /opt/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+        dest: /opt
+        remote_src: yes
+    - name: Set the JAVA_HOME in /etc/profile file
+      lineinfile:
+        path: /etc/profile
+        state: present
+        line: "{{ item }}"
+      with_items:
+        - 'export JAVA_HOME="/opt/jdk-18.0.2.1"'
+        - 'export PATH=$PATH:$JAVA_HOME/bin'
+    - name: Reload /etc/profile file
+      shell:
+        cmd: source /etc/profile
+		
+		
